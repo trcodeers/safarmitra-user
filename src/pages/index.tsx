@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       }}
     >
       <img
-        alt="Picture of the author"
+        alt="A Pictue "
         height={'350px'}
         width={'100%'} 
         src={"/nature.jpeg"}
