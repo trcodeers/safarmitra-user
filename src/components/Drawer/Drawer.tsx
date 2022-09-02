@@ -105,7 +105,7 @@ export default function DekstopDrawer(props: Props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ marginTop: { xs: '12px' } }}>
+      <Box component="main" sx={{ marginTop: { xs: '12px', sm: '0px' } }}>
         <Toolbar />
         {children}
       </Box>
