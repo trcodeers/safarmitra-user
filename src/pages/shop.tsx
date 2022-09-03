@@ -1,7 +1,5 @@
-
 import type { NextPage } from 'next'
 import ShopCard from '../components/shopCard';
-import Colors from '../config/colors';
 
 const Shop: NextPage = () => {
  
@@ -11,7 +9,7 @@ const Shop: NextPage = () => {
         <ShopCard 
           title='Jacket'
           link={"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console"}
-          image='./nature.jpeg'
+          image='./placeImages/nature.jpeg'
         />
       </div>
     </>
