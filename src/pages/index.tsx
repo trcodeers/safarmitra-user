@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <Box
       sx={{
         width: '100vw',
-        height: { xs: '20px', lg: '350px' },
+        // height: { xs: '20px', lg: '350px' },
         display: { xs: 'block', sm: 'block', md: 'block', lg: 'block' }
       }}
     >
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
               </CardActionArea>
             </Card>
             )
-          } )
+          })
         }  
       </div>
     </Box>
