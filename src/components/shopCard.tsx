@@ -38,7 +38,7 @@ const ShopCard = (props: Props) =>{
                         height='200px'
                     />
 
-                <Box textAlign={'center'} color={Colors.primary}>
+                <Box textAlign={'center'}  style={{ fontWeight: 'bold' }}>
                     {title}
                 </Box>
                 </Box>
