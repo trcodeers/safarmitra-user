@@ -9,10 +9,10 @@ type Props = {
 const ShopCard = (props: Props) =>{
 
     const { title, image, link } = props
-
+console.log(link)
     return(
         <>
-            <a 
+            <Link 
                 href={link} 
                 target="_blank"
             >
@@ -49,7 +49,7 @@ const ShopCard = (props: Props) =>{
                         onClick={(e)=>{
                             e.stopPropagation()
                         }}
-                        href={link} 
+                        href={'m'} 
                         target="_blank"
                     >
                         <Button 
@@ -64,7 +64,7 @@ const ShopCard = (props: Props) =>{
                 </div>
                 </CardContent>
             </Card>
-            </a>
+            </Link>
         </>
     )
 }
