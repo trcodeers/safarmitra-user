@@ -13,20 +13,22 @@ const PlaceCard = (props: Props) =>{
     return(
         <>
             <Card onClick={onClick} key={name} sx={{ width: 300 }}>
-                  <CardActionArea>
+                  <CardActionArea sx={{
+                    paddingBottom: '40px'
+                  }}>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="240"
                       image={image}
                       alt={name}
                     />
                     <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
+                      <Typography style={{ textAlign: 'center' }} variant="h6" component="div">
                         {name}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      {/* <Typography variant="body2" color="text.secondary">
                         {description}
-                      </Typography>
+                      </Typography> */}
                     </CardContent>
                   </CardActionArea>
                 </Card>

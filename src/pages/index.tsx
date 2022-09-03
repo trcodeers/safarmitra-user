@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           alt="A Pictue "
           height={'350px'}
           width={'100%'} 
-          src={"/placeImages/nature.jpeg"}
+          src={"/placeImages/title.jpg"}
         />
       </Box>
     
