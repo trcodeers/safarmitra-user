@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import type { NextPage } from 'next'
 import ShopCard from '../components/shopCard';
 
@@ -15,6 +16,10 @@ const Shop: NextPage = () => {
     }
  ]
   return (
+    <>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
+        <Typography variant='h5'>Do shopping for your next trip</Typography>
+      </div>
       <div style={{ marginTop: '30px', marginLeft: '40px', display: 'flex', flexDirection: 'row', gap: '30px'  }}>
        {
         d.map((el)=>(
@@ -26,6 +31,7 @@ const Shop: NextPage = () => {
         ))
        }
       </div>
+    </>
   )
 }
 
