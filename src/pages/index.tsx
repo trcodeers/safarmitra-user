@@ -1,7 +1,6 @@
-import { Card, CardActionArea, CardMedia, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
-import Image from 'next/image'
 import Places from "../constants/places";
 
 
@@ -27,7 +26,9 @@ const Home: NextPage = () => {
     </Box>
     
     <Box>
-      <Typography style={{ marginTop: '20px' }} variant="h6" textAlign={'center'}>Know about the places</Typography>
+      <Typography style={{ marginTop: '20px' }} variant="h6" textAlign={'center'}>
+        Plan vacation for your favourite place 
+      </Typography>
       <div 
         style={{
           marginTop: '20px',
@@ -41,36 +42,26 @@ const Home: NextPage = () => {
       >
         {
           Places.map((place, index) =>{
-            const { name, image } = place
+            const { name, image, description } = place
           return (
-              <Card
-                sx={{
-                  width: '300px',
-                  height: '300px',
-                }}
-              >
-                <CardActionArea
-                   sx={{
-                    // height: '350px',
-                  }}
-                >
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={image}
-                      alt={name}
-                    />
-                    <Typography style={{ marginTop: '10px', marginLeft: '5px' }} variant="h6">
-                      {name}
-                    </Typography>
-                    <Box style={{ marginTop: '20px' }}>
-                      <Typography style={{ padding: '4px', paddingBottom: '10px' }} variant="subtitle2" color="text.secondary">
-                          Lizards are a widespread group of squamate reptiles, with over 6,000
-                          species, ranging ,cross all continents except Antarctica
-                      </Typography>
-                    </Box>
-                </CardActionArea>
-              </Card>
+            <Card key={name} sx={{ width: 300, height: '250px' }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={image}
+                  alt={name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
             )
           } )
         }  
