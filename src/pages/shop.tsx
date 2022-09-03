@@ -10,7 +10,7 @@ const Shop: NextPage = () => {
     <div style={{ marginTop: '30px', marginLeft: '40px'  }}>
       <ShopCard 
         title='Jacket'
-        link='amazon.com'
+        link='"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console"'
         image='./nature.jpeg'
       />
     </div>

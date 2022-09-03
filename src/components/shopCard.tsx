@@ -1,7 +1,5 @@
 import { Card, CardContent, Box, Button, Link } from "@mui/material"
 import Colors from "../config/colors"
-import Router, { useRouter } from "next/router";
-
 
 type Props = {
     title: string,
@@ -11,9 +9,13 @@ type Props = {
 const ShopCard = (props: Props) =>{
 
     const { title, image, link } = props
-    const router = useRouter()
+
     return(
         <>
+            <a 
+                href={link} 
+                target="_blank"
+            >
             <Card 
                 onClick={()=> console.log('card')}
                 sx={{
@@ -43,25 +45,26 @@ const ShopCard = (props: Props) =>{
                 </Box>
                 </Box>
                 <div style={{ position: 'relative' }}>
-                <Link href="https://amazon.com">
-
-                    <Button 
-                    onClick={(e)=>{
-                        e.stopPropagation()
-                        router.push('amazon.com')
-                        console.log('button')
-                    }}
-                    style={{ position: 'absolute', bottom: '-90px' }} 
-                    fullWidth 
-                    size='large' 
-                    variant='outlined'
+                    <a  
+                        onClick={(e)=>{
+                            e.stopPropagation()
+                        }}
+                        href={link} 
+                        target="_blank"
                     >
-                    Buy
-                    </Button>
-                    </Link>
+                        <Button 
+                            style={{ position: 'absolute', bottom: '-90px' }} 
+                            fullWidth 
+                            size='large' 
+                            variant='outlined'
+                        >
+                            Buy
+                        </Button>
+                    </a>
                 </div>
                 </CardContent>
             </Card>
+            </a>
         </>
     )
 }
