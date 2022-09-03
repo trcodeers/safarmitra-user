@@ -1,11 +1,14 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import PlaceCard from "../components/placeCard";
 import Places from "../constants/places";
 
 
 const Home: NextPage = () => {
  
+  const router = useRouter()
 
   return (
     <>
@@ -19,7 +22,7 @@ const Home: NextPage = () => {
           alt="A Pictue "
           height={'350px'}
           width={'100%'} 
-          src={"/nature.jpeg"}
+          src={"/placeImages/nature.jpeg"}
         />
       </Box>
     
@@ -40,26 +43,15 @@ const Home: NextPage = () => {
         >
           {
             Places.map((place, index) =>{
-              const { name, image, description } = place
+              const { name, image, description, searchText } = place
               return (
-                <Card key={name} sx={{ width: 300 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={image}
-                      alt={name}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {description}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
+                  <PlaceCard 
+                    key={name}
+                    name={name}
+                    image={image}
+                    description={description}
+                    onClick={() => router.push(`/place/${searchText}`)}
+                  />
                 )
             })
           }  

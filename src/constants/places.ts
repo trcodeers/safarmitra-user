@@ -2,23 +2,28 @@
 const Places = [
     {
         name: 'Mussiore',
-        image: './nature.jpeg',
-        description:' Plan vacation for your favourite place '
+        image: './placeImages/nature.jpeg',
+        description:' Plan vacation for your favourite place ',
+        searchText: 'mussiore'
     },
     {
         name: 'Manali',
-        image: './nature.jpeg',
-        description: ' Plan vacation for your favourite place,'
+        image: './placeImages/nature.jpeg',
+        description: ' Plan vacation for your favourite place,',
+        searchText: 'manali'
     },
     {
         name: 'Shimla',
-        image: './nature.jpeg',
-        description: ''
+        image: './placeImages/nature.jpeg',
+        description: '',
+        searchText: 'shimla'
     },
     {
         name: 'Varanasi',
-        image: './nature.jpeg' ,
-        description: ''
+        image: './placeImages/nature.jpeg' ,
+        description: '',
+        searchText: 'varanasi'
+
     },
 
 ]
