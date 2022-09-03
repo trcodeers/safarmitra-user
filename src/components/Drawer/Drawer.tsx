@@ -64,7 +64,7 @@ export default function DekstopDrawer(props: Props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{  }}>
       <AppBar sx={{ height: { xs: '70px' } }} position="fixed" component="nav">
         <Toolbar>
           <Typography
