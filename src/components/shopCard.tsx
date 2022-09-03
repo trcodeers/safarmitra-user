@@ -18,8 +18,8 @@ const ShopCard = (props: Props) =>{
                 }}
                 sx={{
                     width: '250px',
-                    height: '380px',
-                    cursor: 'pointer'
+                    height: '450px',
+                    cursor: 'pointer',
                 }}
             >
                 <CardContent>
@@ -34,8 +34,8 @@ const ShopCard = (props: Props) =>{
                     <img 
                         src={image}
                         alt="image"
-                        width={'230px'} 
-                        height='200px'
+                        width='250px' 
+                        height='250px'
                     />
 
                 <Box textAlign={'center'}  style={{ fontWeight: 'bold' }}>
@@ -49,7 +49,7 @@ const ShopCard = (props: Props) =>{
                             const urlToOpen = new URL(link)
                             window.open(urlToOpen, '_blank')
                         }}
-                        style={{ position: 'absolute', bottom: '-90px' }} 
+                        style={{ position: 'absolute', bottom: '-110px' }} 
                         fullWidth 
                         size='large' 
                         variant='outlined'
