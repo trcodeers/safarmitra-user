@@ -44,7 +44,7 @@ const Home: NextPage = () => {
           Places.map((place, index) =>{
             const { name, image, description } = place
           return (
-            <Card key={name} sx={{ width: 300, height: '250px' }}>
+            <Card key={name} sx={{ width: 300,  }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
