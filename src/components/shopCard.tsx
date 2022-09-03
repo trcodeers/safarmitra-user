@@ -9,15 +9,13 @@ type Props = {
 const ShopCard = (props: Props) =>{
 
     const { title, image, link } = props
-console.log(link)
     return(
         <>
-            <Link 
-                href={link} 
-                target="_blank"
-            >
             <Card 
-                onClick={()=> console.log('card')}
+                onClick={()=>{
+                    const urlToOpen = new URL(link)
+                    window.open(urlToOpen, '_blank')
+                }}
                 sx={{
                     width: '250px',
                     height: '380px',
@@ -45,26 +43,22 @@ console.log(link)
                 </Box>
                 </Box>
                 <div style={{ position: 'relative' }}>
-                    <a  
+                    <Button 
                         onClick={(e)=>{
                             e.stopPropagation()
+                            const urlToOpen = new URL(link)
+                            window.open(urlToOpen, '_blank')
                         }}
-                        href={'m'} 
-                        target="_blank"
+                        style={{ position: 'absolute', bottom: '-90px' }} 
+                        fullWidth 
+                        size='large' 
+                        variant='outlined'
                     >
-                        <Button 
-                            style={{ position: 'absolute', bottom: '-90px' }} 
-                            fullWidth 
-                            size='large' 
-                            variant='outlined'
-                        >
-                            Buy
-                        </Button>
-                    </a>
+                        Buy
+                    </Button>
                 </div>
                 </CardContent>
             </Card>
-            </Link>
         </>
     )
 }
