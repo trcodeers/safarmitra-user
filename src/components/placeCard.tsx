@@ -31,9 +31,7 @@ const PlaceCard = (props: Props) =>{
                       </Typography> */}
                     </CardContent>
                   </CardActionArea>
-                </Card>
-
-            
+            </Card>
         </>
     )
 }

@@ -1,8 +1,8 @@
 import { NextPage } from "next/types";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { getPlaceDetails } from "../../api/place";
-import useFetch from "../../hooks/useFetch"
+import { getPlaceDetails } from "../api/place";
+import useFetch from "../hooks/useFetch"
 
 
 const Index: NextPage = () => {

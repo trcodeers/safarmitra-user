@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                     name={name}
                     image={image}
                     description={description}
-                    onClick={() => router.push(`/place/${searchText}`)}
+                    onClick={() => router.push(`/${searchText}`)}
                   />
                 )
             })
