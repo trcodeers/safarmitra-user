@@ -37,16 +37,16 @@ const Index: NextPage = () => {
 
     return(
         <>
-        <Box
-            sx={{
-                // width: { lg: '80%', xs: '90%', },
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center'
-            }}
-        >
-            <div  dangerouslySetInnerHTML={{ __html: content }}/>
-        </Box>
+            <Box
+                sx={{
+                    // width: { lg: '80%', xs: '90%', },
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center'
+                }}
+            >
+                <div  dangerouslySetInnerHTML={{ __html: content }}/>
+            </Box>
         </>
     )
 
