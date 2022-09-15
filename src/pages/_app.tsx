@@ -7,6 +7,7 @@ import { Paper } from '@mui/material';
 import { useState } from 'react';
 import DarkModeContext from '../context/DarkModeContext';
 import { PaletteSettings } from '../config/setting';
+import Footer from '../components/footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -29,6 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <Layout>
                         <Component {...pageProps} />
                     </Layout>
+                    <div style={{ marginTop: '40px', }}>
+                      <Footer/>
+                    </div>
                   </Paper>
             </ThemeProvider>
           </DarkModeContext.Provider>
