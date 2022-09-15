@@ -2,6 +2,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/m
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import Footer from "../components/footer";
 import PlaceCard from "../components/placeCard";
 import Places from "../constants/places";
 
@@ -58,6 +59,11 @@ const Home: NextPage = () => {
         </div>
       </Box>
     
+    <div style={{ marginTop: '40px', }}>
+      <Footer/>
+    </div>
+    
+  
     </>
   );
 };
