@@ -6,19 +6,21 @@ const Layout = (props: any) => {
     const { children, ...restprops } = props;
     
     return (
-      <>   
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>   
     
-        <DekstopDrawer
-          {...restprops}
-        >
-          {children}
-        </DekstopDrawer> 
+        <div style={{ display: 'flex', flexGrow: 1 }}>
+          <DekstopDrawer
+            {...restprops}
+          >
+            {children}
+          </DekstopDrawer> 
+        </div>
 
-        <div style={{  }}>
+        <div style={{ marginTop: '20px'}}>
           <Footer/>
         </div>
 
-      </>
+      </div>
     );
 
 }
