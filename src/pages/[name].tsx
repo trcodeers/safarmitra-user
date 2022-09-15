@@ -39,10 +39,10 @@ const Index: NextPage = () => {
         <>
             <Box
                 sx={{
-                    // width: { lg: '80%', xs: '90%', },
                     display: 'flex', 
                     justifyContent: 'center', 
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    padding: { xs: '2%', sm: '2%' }
                 }}
             >
                 <div  dangerouslySetInnerHTML={{ __html: content }}/>
