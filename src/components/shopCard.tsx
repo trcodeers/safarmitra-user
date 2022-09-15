@@ -53,6 +53,7 @@ const ShopCard = (props: Props) =>{
                         fullWidth 
                         size='large' 
                         variant='outlined'
+                        sx={{ backgroundColor: '#FFDE00', color: '#000000' }}
                     >
                         Buy
                     </Button>
