@@ -25,6 +25,20 @@ const Places = [
         searchText: 'varanasi'
 
     },
+    {
+        name: 'Naital',
+        image: './placeImages/varanasi.jpg' ,
+        description: '',
+        searchText: 'varanasi'
+
+    },
+    {
+        name: 'Agra',
+        image: './placeImages/varanasi.jpg' ,
+        description: '',
+        searchText: 'varanasi'
+
+    },
 
 ]
 
