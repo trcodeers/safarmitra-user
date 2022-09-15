@@ -71,6 +71,8 @@ export default function DekstopDrawer(props: Props) {
             variant="h6"
             component="div"
             sx={{ color: Colors.white, fontWeight: '600', flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+            onClick={() => router.push('/')}
+            style={{ cursor: 'pointer' }}
           >
             {AppName}
           </Typography>
