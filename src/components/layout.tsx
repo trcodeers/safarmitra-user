@@ -1,4 +1,5 @@
 import DekstopDrawer from './Drawer/Drawer';
+import Footer from './footer';
 
 const Layout = (props: any) => {
   
@@ -12,6 +13,11 @@ const Layout = (props: any) => {
         >
           {children}
         </DekstopDrawer> 
+
+        <div style={{  }}>
+          <Footer/>
+        </div>
+
       </>
     );
 

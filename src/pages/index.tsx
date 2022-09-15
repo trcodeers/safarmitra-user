@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         />
       </Box>
     
-      {/* <Box>
+      <Box>
         <Typography style={{ marginTop: '20px' }} variant="h6" textAlign={'center'}>
           Plan vacation for your favourite place 
         </Typography>
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
             })
           }  
         </div>
-      </Box> */}
+      </Box>
   
     </>
   );

@@ -30,9 +30,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <Layout>
                         <Component {...pageProps} />
                     </Layout>
-                    <div style={{ marginTop: '40px', }}>
-                      <Footer/>
-                    </div>
                   </Paper>
             </ThemeProvider>
           </DarkModeContext.Provider>
