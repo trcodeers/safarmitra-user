@@ -18,6 +18,7 @@ const Footer = () =>{
                     <p>Safar Mitra Inc.</p>
                     <p>All rights resevred 2022 </p>
 
+                    <p>Privacy policy</p>
                 </div>
            </Card>
         </>
