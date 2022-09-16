@@ -8,7 +8,7 @@ const Layout = (props: any) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>   
     
-        <div style={{ display: 'flex', flexGrow: 1 }}>
+        <div style={{ display: 'flex', flexGrow: 1, flexDirection: 'column' }}>
           <DekstopDrawer
             {...restprops}
           >
@@ -16,7 +16,7 @@ const Layout = (props: any) => {
           </DekstopDrawer> 
         </div>
 
-        <div style={{ marginTop: '20px'}}>
+        <div style={{ marginTop: '20px' }}>
           <Footer/>
         </div>
 

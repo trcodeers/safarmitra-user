@@ -9,15 +9,16 @@ const Footer = () =>{
            <Card 
                 sx={{ 
                     width: '100%', 
-                    height: {lg: '200px', xs: '120px', sm: '120px' }, 
+                    height: { lg: '140px', xs: '100px', sm: '100px' }, 
                     backgroundColor: Colors.primary,
                 }}
             >
-                <div style={{ marginBottom: '10px', display: 'flex', justifyContent:'center', alignItems: 'center', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent:'center', alignItems: 'center', flexDirection: 'column' }}>
                     
                     <p>Safar Mitra Inc.</p>
                     <p>All rights resevred 2022 </p>
 
+                    <p>Privacy policy</p>
                 </div>
            </Card>
         </>
