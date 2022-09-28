@@ -70,7 +70,7 @@ export default function DekstopDrawer(props: Props) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ color: Colors.white, fontWeight: '600', flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+            sx={{ color: Colors.black, cursor: 'pointer', fontSize: '30px', fontWeight: '100', fontFamily: 'cursive', flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
             onClick={() => router.push('/')}
             style={{ cursor: 'pointer' }}
           >
