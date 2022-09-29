@@ -20,10 +20,11 @@ const Shop: NextPage = () => {
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
         <Typography variant='h5'>Do shopping for your next trip</Typography>
       </div>
-      <div style={{ marginTop: '50px', display: 'flex', flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap', gap: '30px'  }}>
+      <div style={{ marginTop: '50px', justifyContent: 'center',  display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px'  }}>
        {
         d.map((el)=>(
           <ShopCard 
+            key={el.title}
             title={el.title}
             link={el.link}
             image={el.image}

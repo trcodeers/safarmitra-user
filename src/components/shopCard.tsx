@@ -18,7 +18,7 @@ const ShopCard = (props: Props) =>{
                     window.open(urlToOpen, '_blank')
                 }}
                 sx={{
-                    width: '190px',
+                    width: '170px',
                     height: '360px',
                     cursor: 'pointer',
                     position: 'relative'
