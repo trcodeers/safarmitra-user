@@ -1,4 +1,4 @@
-import { Card, CardContent, Box, Button, Link, Typography } from "@mui/material"
+import { Card, CardContent, Box, Button, Link, Typography, Chip } from "@mui/material"
 import Colors from "../config/colors"
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 const ShopCard = (props: Props) =>{
 
     const { title, image, link } = props
+
     return(
         <>
             <Card 
@@ -17,48 +18,42 @@ const ShopCard = (props: Props) =>{
                     window.open(urlToOpen, '_blank')
                 }}
                 sx={{
-                    width: '200px',
-                    height: '350px',
+                    width: '190px',
+                    height: '360px',
                     cursor: 'pointer',
+                    position: 'relative'
                 }}
             >
-                <CardContent>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            gap: '20px'
-                        }}
-                    >
-                        <img 
-                            src={image}
-                            alt="image"
-                            width='150px' 
-                            height='130px'
-                        />
-                        <Box textAlign={'center'}  style={{ fontWeight: 'bold' }}>
-                            {title}
-                        </Box>
+                 <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '20px'
+                    }}
+                >
+                    <img 
+                        src={image}
+                        alt="image"
+                        width='150px' 
+                        height='150px'
+                    />
+                    <Box textAlign={'center'}  style={{  }}>
+                        {title}
                     </Box>
-                    <Typography variant="body2">From Amazon</Typography>
-                    <div style={{ position: 'relative' }}>
-                        <Button 
-                            onClick={(e)=>{
-                                e.stopPropagation()
-                                const urlToOpen = new URL(link)
-                                window.open(urlToOpen, '_blank')
-                            }}
-                            style={{ position: 'absolute',  bottom: 0 }} 
-                            fullWidth 
-                            size='large' 
-                            variant='contained'
-                            sx={{ backgroundColor: '#FFDE00', color: '#000000' }}
-                        >
-                            Buy
-                        </Button>
-                    </div>
-                </CardContent>
+                </Box>
+                
+                <Box sx={{ position: 'absolute', bottom:"5vh" }}>        
+                    <Chip size="small" label="From Amazon" color="primary" variant="outlined" />
+                </Box>
+                <Button 
+                    fullWidth
+                    variant="contained"
+                    sx={{ backgroundColor: '#FFDE00', color: '#000000' }}
+                    style={{ position: 'absolute', bottom:"0.2vh" }}
+                >
+                    Buy
+                </Button>
             </Card>
         </>
     )

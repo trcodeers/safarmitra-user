@@ -10,7 +10,7 @@ const Shop: NextPage = () => {
       image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
     },
     {
-      title:'Columbia Glennaker Rain Jacket',
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
       link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
       image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
     }
@@ -20,7 +20,7 @@ const Shop: NextPage = () => {
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
         <Typography variant='h5'>Do shopping for your next trip</Typography>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap', gap: '30px'  }}>
+      <div style={{ marginTop: '50px', display: 'flex', flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap', gap: '30px'  }}>
        {
         d.map((el)=>(
           <ShopCard 
