@@ -48,7 +48,7 @@ const Shop: NextPage = () => {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        <Typography variant='h5'>Do shopping for your next trip</Typography>
+        <Typography variant='body2'>Do shopping for your next trip</Typography>
       </div>
       <div style={{ marginTop: '50px', justifyContent: 'center',  display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px'  }}>
        {

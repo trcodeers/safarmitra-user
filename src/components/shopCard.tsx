@@ -38,8 +38,8 @@ const ShopCard = (props: Props) =>{
                         width='150px' 
                         height='150px'
                     />
-                    <Box textAlign={'center'}  style={{  }}>
-                        {title}
+                    <Box textAlign='center'>
+                        <Typography variant="body2">{title}</Typography>
                     </Box>
                 </Box>
                 
