@@ -52,7 +52,7 @@ const ShopCard = (props: Props) =>{
                     sx={{ backgroundColor: '#FFDE00', color: '#000000' }}
                     style={{ position: 'absolute', bottom:"0.2vh" }}
                 >
-                    Buy
+                    View Details
                 </Button>
             </Card>
         </>
