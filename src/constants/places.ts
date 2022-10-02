@@ -12,6 +12,13 @@ const Places = [
         description: ' Plan vacation for your favourite place,',
         searchText: 'manali'
     },
+    
+    {
+        name: 'Kullu',
+        image: './placeImages/manali.jpg',
+        description: ' Plan vacation for your favourite place,',
+        searchText: 'manali'
+    },
     {
         name: 'Shimla',
         image: './placeImages/shimla.jpg',
@@ -39,7 +46,18 @@ const Places = [
         searchText: 'varanasi'
 
     },
-
+    {
+        name: 'Jaipur',
+        image: './placeImages/manali.jpg',
+        description: ' Plan vacation for your favourite place,',
+        searchText: 'manali'
+    },
+    {
+        name: 'Udaipur',
+        image: './placeImages/manali.jpg',
+        description: ' Plan vacation for your favourite place,',
+        searchText: 'manali'
+    },
 ]
 
 export default Places;
