@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Footer from "../components/footer";
 import PlaceCard from "../components/placeCard";
+import Colors from "../config/colors";
 import Places from "../constants/places";
 
 
@@ -25,6 +26,25 @@ const Home: NextPage = () => {
           width={'100%'} 
           src={"/placeImages/title.jpg"}
         />
+        <Typography 
+         sx={{
+          position: 'absolute',
+          top: '20%',
+          left: { xs: '15%', sm: '40%', lg: '43%', md: '43%' },
+          backgroundColor: Colors.primary,
+          color: Colors.white,
+          height: '50px',
+          width: '250px',
+          textAlign: 'center',
+          padding: '10px',
+          fontWeight :'bold'
+          
+
+         }}
+         variant="h5"
+        >
+           Winter is coming 
+        </Typography>
       </Box>
     
       <Box>
