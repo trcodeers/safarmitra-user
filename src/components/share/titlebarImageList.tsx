@@ -43,7 +43,9 @@ export default function TitlebarImageList() {
                 position: 'absolute', 
                 bottom: '1vh',
                 left: '2%', 
-                color: Colors.white
+                right: '1%',
+                color: Colors.white,
+                wordWrap: 'break-word'
               }} 
               variant='h6'
             >
@@ -62,7 +64,7 @@ export default function TitlebarImageList() {
 const itemData = [
   {
     img: '/placeImages/title.jpg',
-    title: 'Shimla',
+    title: 'ShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimla',
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
