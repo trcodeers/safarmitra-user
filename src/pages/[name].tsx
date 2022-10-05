@@ -98,7 +98,10 @@ const Index: NextPage = () => {
                     })
                 }
 
+            <div>
                 <TitlebarImageList/>
+
+            </div>
 
             </Box>
         </>
