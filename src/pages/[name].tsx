@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getPlaceDetails } from "../api/place";
 import useFetch from "../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
+import TitlebarImageList from "../components/share/titlebarImageList";
 
 const data = [
     {
@@ -24,6 +25,10 @@ const data = [
     },
     {
         question: 'Weather of Shimla',
+        answer: 'Shimla ios   fb feruh fewh  fe w hwd uqwbi ewfwwh whf jwfiwbfwq dhw fiwfff fh fhjwhfw w fwfwfw fw fw fwe f f fffw w fw fwfwe fwe fw fw '
+    },
+    {
+        question: 'Budget idea',
         answer: 'Shimla ios   fb feruh fewh  fe w hwd uqwbi ewfwwh whf jwfiwbfwq dhw fiwfff fh fhjwhfw w fwfwfw fw fw fwe f f fffw w fw fwfwe fwe fw fw '
     },
  
@@ -92,6 +97,8 @@ const Index: NextPage = () => {
                         )
                     })
                 }
+
+                <TitlebarImageList/>
 
             </Box>
         </>
