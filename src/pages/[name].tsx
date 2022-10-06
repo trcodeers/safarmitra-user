@@ -6,6 +6,7 @@ import useFetch from "../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
 import TitlebarImageList from "../components/share/titlebarImageList";
 import ShopCard from "../components/shopCard";
+import ProductViewsList from "../components/place/productViewsList";
 
 const content = [
     {
@@ -155,34 +156,9 @@ const Index: NextPage = ({ data, error }: any) => {
 
     return(
         <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap'
-                }}
-            >
-
-                {
-                    products.map((product: any, index: number) => {
-                        
-                        const { title, link, image} = product
-
-                        return(
-                            <>
-                                <ShopCard 
-                                    key={title}
-                                    title={title}
-                                    link={link}
-                                    image={image}
-                                />  
-                            </>
-                        )
-                    })
-                }
-
-            </Box>
-
+            <ProductViewsList 
+              data={products}
+            />
             <Box
                 sx={{
                     display: 'flex', 

@@ -5,11 +5,15 @@ type Props = {
 
 const ProductViewsList = (props: Props) =>{
 
+    const { data } = props
+    
     return(
         <>
-        
+            
+
         </>
     )
+
 }
 
 export default ProductViewsList;
