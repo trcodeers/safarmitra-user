@@ -150,7 +150,6 @@ const Index: NextPage = ({ data, error }: any) => {
                 <TitlebarImageList
                     data={images}
                 />
-
             </div>
 
             </Box>

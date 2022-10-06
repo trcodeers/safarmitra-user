@@ -27,6 +27,7 @@ export default function TitlebarImageList(props: Props) {
               gap: '0px',
               position: 'relative'
             }}
+            key={item.title}
           >
             <Image
               src="/placeImages/title.jpg"
