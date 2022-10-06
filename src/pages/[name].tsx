@@ -103,6 +103,25 @@ const products = [
       title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
       link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
       image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
+    }, {
+      title:'Amazon Basics Outdoor Rucksack Backpack',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
+    },
+    {
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
+    },
+    {
+      title:'Amazon Basics Outdoor Rucksack Backpack',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
+    },
+    {
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
     },
     {
       title:'Amazon Basics Outdoor Rucksack Backpack',
@@ -156,50 +175,58 @@ const Index: NextPage = ({ data, error }: any) => {
 
     return(
         <>
-            <ProductViewsList 
-              data={products}
-            />
-            <Box
-                sx={{
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    gap: '30px',
-                    padding: { xs: '2%', sm: '2%' }
-                }}
-            >
-                {
-                    content.map((el: any, index: number) => {
-                        const { question, answer } = el
-                        return(
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '10px'
-                                }}
-                            >
-                                <Typography 
-                                    variant="h6" 
-                                    style={{ fontSize: '20px', fontWeight: '600' }}
-                                >
-                                   [ {question} ]
-                                </Typography>   
-                                <Typography variant="body1">
-                                    <div  dangerouslySetInnerHTML={{ __html: answer }}/>
-                                </Typography>   
+          <Box
+            sx={{
+              marginLeft: '1%',
+              marginTop: '20px'
+            }}
+          >
+              <ProductViewsList 
+                data={products}
+              />
+          </Box>
+          <Box
+              sx={{
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  gap: '30px',
+                  padding: { xs: '2%', sm: '2%' }
+              }}
+          >
+              {
+                  content.map((el: any, index: number) => {
+                      const { question, answer } = el
+                      return(
+                          <Box
+                              sx={{
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  gap: '10px'
+                              }}
+                          >
+                              <Typography 
+                                  variant="h6" 
+                                  style={{ fontSize: '20px', fontWeight: '600' }}
+                              >
+                                  [ {question} ]
+                              </Typography>   
+                              <Typography variant="body1">
+                                  <div  dangerouslySetInnerHTML={{ __html: answer }}/>
+                              </Typography>   
 
-                            </Box>
-                        )
-                    })
-                }
+                          </Box>
+                      )
+                  })
+              }
 
-            <div>
-                <TitlebarImageList
-                    data={images}
-                />
-            </div>
+          <div>
+              <TitlebarImageList
+                  data={images}
+              />
+          </div>
 
-            </Box>
+          </Box>
+
         </>
     )
 

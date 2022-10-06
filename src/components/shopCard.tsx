@@ -48,7 +48,7 @@ const ShopCard = (props: Props) =>{
                 </Box>
                 
                 <Box sx={{ position: 'absolute', bottom:"5vh" }}>        
-                    <Chip size="small" label="From Amazon" color="primary" variant="outlined" />
+                    <Chip sx={{ overflow: 'hidden' }} size="small" label="From Amazon" color="primary" variant="outlined" />
                 </Box>
                 <Button 
                     fullWidth
