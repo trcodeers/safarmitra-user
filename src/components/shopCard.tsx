@@ -4,11 +4,15 @@ import Colors from "../config/colors"
 type Props = {
     title: string,
     image: string,
-    link: string
+    link: string,
+    cardWidth?: string,
+    cardHeight?: string,
+    imageHeight?: string,
+    imageWidth?: string
 }
 const ShopCard = (props: Props) =>{
 
-    const { title, image, link } = props
+    const { title, image, link, cardHeight, cardWidth, imageHeight, imageWidth  } = props
 
     return(
         <>
@@ -18,8 +22,8 @@ const ShopCard = (props: Props) =>{
                     window.open(urlToOpen, '_blank')
                 }}
                 sx={{
-                    width: '170px',
-                    height: '360px',
+                    width: cardWidth || '170px',
+                    height: cardHeight || '360px',
                     cursor: 'pointer',
                     position: 'relative'
                 }}
@@ -35,8 +39,8 @@ const ShopCard = (props: Props) =>{
                     <img 
                         src={image}
                         alt="image"
-                        width='150px' 
-                        height='150px'
+                        width={imageWidth || '150px'} 
+                        height={imageHeight || '150px'}
                     />
                     <Box textAlign='center'>
                         <Typography variant="body2">{title}</Typography>
