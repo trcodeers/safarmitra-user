@@ -13,7 +13,7 @@ const ProductViewsList = (props: Props) =>{
     return(
         <> 
             <Typography textAlign={'center'} style={{ color: Colors.primary }} variant="h6">
-                Recomanded product for 
+                Recomanded product for Shimla
             </Typography>
             
             <ImageList sx={{ overflowX: 'auto' }} rowHeight={360}>   
