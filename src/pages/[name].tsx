@@ -1,4 +1,4 @@
-import { NextPage } from "next/types";
+import { GetStaticPaths, NextPage } from "next/types";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { getPlaceDetails } from "../api/place";
@@ -6,7 +6,7 @@ import useFetch from "../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
 import TitlebarImageList from "../components/share/titlebarImageList";
 
-const data = [
+const content = [
     {
         question: 'A brief of Shimla',
         answer: 'Shimla ios   fb feruh fewh  fe w hwd uqwbi ewfwwh whf jwfiwbfwq dhw fiwfff fh fhjwhfw w fwfwfw fw fw fwe f f fffw w fw fwfwe fwe fw fw '
@@ -33,84 +33,8 @@ const data = [
     },
  
 ]
-const Index: NextPage = () => {
 
-    const router = useRouter()
-    const { name } = router.query
-
-    const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceDetails)
-
-    const [snackMessage, setSnackMessage] = useState('')
-
-    useEffect(() =>{
-        if(name){
-            getPlaceDetailsRequset({name})
-         }
-      }, [name]) 
-
-      useEffect(() =>{
-        if(getPlaceDetailsError?.status){
-            setSnackMessage(getPlaceDetailsError?.message || 'Please try after somtime')
-        }
-        else{
-            if(getPlaceDetailsData?.result){
-                // setData(getPlaceDetailsData?.result)
-            }
-        }
-      }, [getPlaceDetailsData, getPlaceDetailsError])
-
-
-    return(
-        <>
-            <Box
-                sx={{
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    gap: '30px',
-                    padding: { xs: '2%', sm: '2%' }
-                }}
-            >
-                {
-                    data.map((el: any, index: number) => {
-                        const { question, answer } = el
-                        return(
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '10px'
-                                }}
-                            >
-                                <Typography 
-                                    variant="h6" 
-                                    style={{ fontSize: '20px', fontWeight: '600' }}
-                                >
-                                   [ {question} ]
-                                </Typography>   
-                                <Typography variant="body1">
-                                    <div  dangerouslySetInnerHTML={{ __html: answer }}/>
-                                </Typography>   
-
-                            </Box>
-                        )
-                    })
-                }
-
-            <div>
-                <TitlebarImageList
-                    data={itemData}
-                />
-
-            </div>
-
-            </Box>
-        </>
-    )
-
-}
-
-
-const itemData = [
+const images = [
     {
       img: '/placeImages/title.jpg',
       title: 'ShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimlaShimla',
@@ -155,6 +79,112 @@ const itemData = [
       img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
       title: 'Bike',
     },
-  ];
+];
+
+ 
+const Index: NextPage = ({ data, error }: any) => {
+
+    const { content, images } = data
+    const router = useRouter()
+    const { name } = router.query
+
+    const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceDetails)
+
+    const [snackMessage, setSnackMessage] = useState('')
+
+    useEffect(() =>{
+        if(name){
+            getPlaceDetailsRequset({name})
+         }
+      }, [name]) 
+
+      useEffect(() =>{
+        if(getPlaceDetailsError?.status){
+            setSnackMessage(getPlaceDetailsError?.message || 'Please try after somtime')
+        }
+        else{
+            if(getPlaceDetailsData?.result){
+                // setData(getPlaceDetailsData?.result)
+            }
+        }
+      }, [getPlaceDetailsData, getPlaceDetailsError])
+
+
+    return(
+        <>
+            <Box
+                sx={{
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    gap: '30px',
+                    padding: { xs: '2%', sm: '2%' }
+                }}
+            >
+                {
+                    content.map((el: any, index: number) => {
+                        const { question, answer } = el
+                        return(
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '10px'
+                                }}
+                            >
+                                <Typography 
+                                    variant="h6" 
+                                    style={{ fontSize: '20px', fontWeight: '600' }}
+                                >
+                                   [ {question} ]
+                                </Typography>   
+                                <Typography variant="body1">
+                                    <div  dangerouslySetInnerHTML={{ __html: answer }}/>
+                                </Typography>   
+
+                            </Box>
+                        )
+                    })
+                }
+
+            <div>
+                <TitlebarImageList
+                    data={images}
+                />
+
+            </div>
+
+            </Box>
+        </>
+    )
+
+}
+
+
+export const getStaticPaths: any = async () => {
+    
+    return{
+        paths: [{ params: { name:  'mussiore' }}],
+        fallback: false
+    }
+
+}
+
+export async function getStaticProps() {
+
+    // const {data} = await getIndianStatesList()
+
+    return {
+      props: {
+        data: {
+            content: content,
+            images: images,
+            // products: Array<any>
+        },
+        // error:{ status: data.status !== 'Success' ? true : false}
+        error: false
+      },
+    }
+
+}
 
 export default Index;
