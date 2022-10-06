@@ -50,7 +50,7 @@ const Shop: NextPage = () => {
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
         <Typography variant='body2'>Do shopping for your next trip</Typography>
       </div>
-      <div style={{ marginTop: '50px', justifyContent: 'center',  display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px'  }}>
+      <div style={{ marginTop: '50px', justifyContent: 'center',  display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
        {
         d.map((el)=>(
           <ShopCard 
