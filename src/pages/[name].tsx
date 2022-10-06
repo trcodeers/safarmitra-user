@@ -5,6 +5,7 @@ import { getPlaceDetails } from "../api/place";
 import useFetch from "../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
 import TitlebarImageList from "../components/share/titlebarImageList";
+import ShopCard from "../components/shopCard";
 
 const content = [
     {
@@ -81,10 +82,52 @@ const images = [
     },
 ];
 
- 
+const products = [
+    {
+      title:'Amazon Basics Outdoor Rucksack Backpack',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
+    },
+    {
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
+    },
+    {
+      title:'Amazon Basics Outdoor Rucksack Backpack',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
+    },
+    {
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
+    },
+    {
+      title:'Amazon Basics Outdoor Rucksack Backpack',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
+    },
+    {
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
+    },
+    {
+      title:'Amazon Basics Outdoor Rucksack Backpack',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg'
+    },
+    {
+      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg'
+    }
+]
+
 const Index: NextPage = ({ data, error }: any) => {
 
-    const { content, images } = data
+    const { content, images, products } = data
     const router = useRouter()
     const { name } = router.query
 
@@ -112,6 +155,34 @@ const Index: NextPage = ({ data, error }: any) => {
 
     return(
         <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap'
+                }}
+            >
+
+                {
+                    products.map((product: any, index: number) => {
+                        
+                        const { title, link, image} = product
+
+                        return(
+                            <>
+                                <ShopCard 
+                                    key={title}
+                                    title={title}
+                                    link={link}
+                                    image={image}
+                                />  
+                            </>
+                        )
+                    })
+                }
+
+            </Box>
+
             <Box
                 sx={{
                     display: 'flex', 
@@ -177,7 +248,7 @@ export async function getStaticProps() {
         data: {
             content: content,
             images: images,
-            // products: Array<any>
+            products: products
         },
         // error:{ status: data.status !== 'Success' ? true : false}
         error: false
