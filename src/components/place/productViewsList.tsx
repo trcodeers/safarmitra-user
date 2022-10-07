@@ -16,7 +16,7 @@ const ProductViewsList = (props: Props) =>{
                 Recomanded product for Shimla
             </Typography>
             
-            <ImageList sx={{ overflowX: 'auto' }} rowHeight={360}>   
+            <ImageList sx={{ overflowX: 'auto' }} rowHeight={375}>   
                 <ImageListItem sx={{display: 'flex', flexDirection: 'row'}}>
                     {data.map((item) =>{
                         const { title , link, image } = item
