@@ -8,11 +8,12 @@ type Props = {
     cardWidth?: string,
     cardHeight?: string,
     imageHeight?: string,
-    imageWidth?: string
+    imageWidth?: string,
+    productSource?: string
 }
 const ShopCard = (props: Props) =>{
 
-    const { title, image, link, cardHeight, cardWidth, imageHeight, imageWidth  } = props
+    const { title, image, link, productSource, cardHeight, cardWidth, imageHeight, imageWidth  } = props
 
     return(
         <>
@@ -47,9 +48,20 @@ const ShopCard = (props: Props) =>{
                     </Box>
                 </Box>
                 
+                {productSource && 
                 <Box sx={{ position: 'absolute', bottom:"5vh" }}>        
-                    <Chip sx={{ overflow: 'hidden' }} size="small" label="From Amazon" color="primary" variant="outlined" />
-                </Box>
+                    <Chip 
+                        sx={{ 
+                            '& .MuiChip-label': {
+                                overflow: 'visible',
+                            }     
+                        }} 
+                        size="small" 
+                        label={'From ' + productSource} 
+                        color="primary" 
+                        variant="outlined" 
+                    />
+                </Box>}
                 <Button 
                     fullWidth
                     variant="contained"

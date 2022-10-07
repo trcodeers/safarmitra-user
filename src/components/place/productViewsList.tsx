@@ -19,13 +19,14 @@ const ProductViewsList = (props: Props) =>{
             <ImageList sx={{ overflowX: 'auto' }} rowHeight={375}>   
                 <ImageListItem sx={{display: 'flex', flexDirection: 'row'}}>
                     {data.map((item) =>{
-                        const { title , link, image } = item
+                        const { title , link, image, productSource } = item
                         return(
                             <ShopCard
                                 key={title}
                                 title={title}
                                 link={link}
-                                image={image}                            
+                                image={image}    
+                                productSource={productSource}                        
                             />
                             )
                     })}
