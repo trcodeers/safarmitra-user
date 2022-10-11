@@ -13,7 +13,8 @@ const useOnScreen = (element: any, rootMargin: string = '0px') => {
 
         element.current && observer.observe(element.current);
 
-        return () => observer.unobserve(element.current);
+        // return () => observer.unobserve(element);
+
     }, []);
 
     return isVisible;
