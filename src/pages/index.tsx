@@ -7,11 +7,18 @@ import PlaceCard from "../components/placeCard";
 import Colors from "../config/colors";
 import Places from "../constants/places";
 import { getPlaceList } from "../api/place";
+import { useEffect, useState } from "react";
 
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ data, error }: any) => {
  
   const router = useRouter()
+
+  const [placeLists, setPlaceLists] = useState([])
+
+  useEffect(() => {
+    setPlaceLists(data)
+  }, [data])
 
   return (
     <>
@@ -64,14 +71,13 @@ const Home: NextPage = () => {
           }}
         >
           {
-            Places.map((place, index) =>{
-              const { name, image, description, searchText } = place
+            placeLists.map((place, index) =>{
+              const { name, titleImage, searchText } = place
               return (
                   <PlaceCard 
                     key={name}
                     name={name}
-                    image={image}
-                    description={description}
+                    image={titleImage}
                     onClick={() => router.push(`/${searchText}`)}
                   />
                 )
@@ -86,14 +92,20 @@ const Home: NextPage = () => {
 
 export async function getStaticProps() {
 
-  const {data} = await getPlaceList()
-console.log(data)
+  const { data } = await getPlaceList()
+
+  const newData = data.result.map((el: any) => {
+      const { _id, name, searchText } = el
+      return { _id, name, searchText }
+  })
+console.log(newData)
   return {
     props: {
-      data,
+      data: newData,
       error:{ status: data.status !== 'Success' ? true : false}
     },
   }
+
 }
 
 export default Home;

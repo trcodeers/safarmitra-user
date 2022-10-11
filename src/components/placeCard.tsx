@@ -3,12 +3,11 @@ import { Card, CardActionArea, CardMedia, CardContent, Typography } from "@mui/m
 type Props = {
     image: string, 
     name: string, 
-    description: string, 
     onClick: () => void
 }
 const PlaceCard = (props: Props) =>{
 
-    const {image, name, description, onClick } = props
+    const {image, name, onClick } = props
 
     return(
         <>
@@ -26,9 +25,6 @@ const PlaceCard = (props: Props) =>{
                       <Typography style={{ textAlign: 'center' }} variant="h6" component="div">
                         {name}
                       </Typography>
-                      {/* <Typography variant="body2" color="text.secondary">
-                        {description}
-                      </Typography> */}
                     </CardContent>
                   </CardActionArea>
             </Card>
