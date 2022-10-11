@@ -6,6 +6,7 @@ import PlaceCard from "../components/placeCard";
 import Colors from "../config/colors";
 import { getPlaceList } from "../api/place";
 import { useEffect, useState } from "react";
+import { getPlaceTitleImage } from "../api/images";
 
 
 const Home: NextPage = ({ data, error }: any) => {
@@ -24,12 +25,17 @@ const Home: NextPage = ({ data, error }: any) => {
     }
   }, [placeLists])
 
-  const onViewExist = (searchText: string) =>{
+  const onViewExist = async(searchText: string) =>{
+  
     console.log(searchText)
+    const imageRes = await getPlaceTitleImage({ searchText })
+    console.log(imageRes)
+  
   }
 
   return (
     <>
+      
       <Box
         sx={{
           width: '100vw',
