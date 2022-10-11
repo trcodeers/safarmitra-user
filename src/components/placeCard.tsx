@@ -1,5 +1,5 @@
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from "@mui/material";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
 
 type Props = {
@@ -16,9 +16,16 @@ const PlaceCard = (props: Props) =>{
     const { image, name, searchText, onClick, onViewExist } = props
 
     const inViewport = useOnScreen(ref, '150px'); 
-    if (inViewport) {
-      onViewExist(searchText)
-    }
+ 
+    useEffect(() =>{
+    
+      console.log(inViewport)
+      if(inViewport){
+        console.log(searchText)
+          onViewExist(searchText)
+      }
+
+    }, [inViewport])
 
     return(
         <>
