@@ -97,11 +97,11 @@ const Home: NextPage = ({ data, error }: any) => {
           }}
         >
           {
-            placeLists.map((place: any) =>{
+            placeLists.map((place: any, index: number) =>{
               const { name, titleImage, searchText } = place
               return (
                   <PlaceCard 
-                    key={name}
+                    key={index}
                     name={name}
                     image={titleImage}
                     searchText={searchText}
