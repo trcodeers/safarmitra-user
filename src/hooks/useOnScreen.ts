@@ -5,15 +5,15 @@ const useOnScreen = (element: any, rootMargin: string = '0px') => {
     const [isVisible, setState] = useState(false);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setState(entry.isIntersecting);
-            }, { rootMargin }
-        );
+        // const observer = new IntersectionObserver(
+        //     ([entry]) => {
+        //         setState(entry.isIntersecting);
+        //     }, { rootMargin }
+        // );
 
-        element.current && observer.observe(element.current);
+        // element.current && observer.observe(element.current);
 
-        // return () => observer.unobserve(element);
+        // // return () => observer.unobserve(element);
 
     }, []);
 
