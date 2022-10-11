@@ -15,7 +15,7 @@ const PlaceCard = (props: Props) =>{
 
     const { image, name, searchText, onClick, onViewExist } = props
 
-    const inViewport = useOnScreen(ref, '240px'); 
+    const inViewport = useOnScreen(ref, '150px'); 
     if (inViewport) {
       onViewExist(searchText)
     }
