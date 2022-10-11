@@ -19,11 +19,11 @@ const PlaceCard = (props: Props) =>{
  
     useEffect(() =>{
     
-      console.log(inViewport)
-      if(inViewport){
-        console.log(searchText)
-          onViewExist(searchText)
-      }
+      // console.log(inViewport)
+      // if(inViewport){
+      //   console.log(searchText)
+      //     onViewExist(searchText)
+      // }
 
     }, [inViewport])
 
