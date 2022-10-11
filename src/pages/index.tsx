@@ -81,7 +81,7 @@ const Home: NextPage = ({ data, error }: any) => {
         </Typography>
       </Box>
     
-      <Box>
+      {/* <Box>
         <Typography style={{ marginTop: '20px' }} variant="h6" textAlign={'center'}>
           Plan vacation for your favourite place 
         </Typography>
@@ -112,7 +112,7 @@ const Home: NextPage = ({ data, error }: any) => {
             })
           }  
         </div>}
-      </Box>
+      </Box> */}
   
     </>
   );
