@@ -24,6 +24,10 @@ const Home: NextPage = ({ data, error }: any) => {
     }
   }, [placeLists])
 
+  const onViewExist = (searchText: string) =>{
+    console.log(searchText)
+  }
+
   return (
     <>
       <Box
@@ -82,6 +86,8 @@ const Home: NextPage = ({ data, error }: any) => {
                     key={name}
                     name={name}
                     image={titleImage}
+                    searchText={searchText}
+                    onViewExist={onViewExist}
                     onClick={() => router.push(`/${searchText}`)}
                   />
                 )

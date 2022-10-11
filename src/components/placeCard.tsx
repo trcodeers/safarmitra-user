@@ -1,35 +1,51 @@
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from "@mui/material";
+import { useRef } from "react";
+import useOnScreen from "../hooks/useOnScreen";
 
 type Props = {
     image: string, 
     name: string, 
-    onClick: () => void
+    onClick: () => void,
+    searchText: string,
+    onViewExist: (searchText: string) => void
 }
 const PlaceCard = (props: Props) =>{
+    
+    const ref: any = useRef();
 
-    const {image, name, onClick } = props
+    const { image, name, searchText, onClick, onViewExist } = props
+
+    const inViewport = useOnScreen(ref, '240px'); 
+    if (inViewport) {
+      onViewExist(searchText)
+    }
 
     return(
         <>
-            <Card onClick={onClick} key={name} sx={{ width: 300 }}>
-                  <CardActionArea sx={{
-                    paddingBottom: '40px'
-                  }}>
-                    {image && <CardMedia
-                      component="img"
-                      height="240"
-                      image={image}
-                      alt={name}
-                      
-                    /> 
-                    }
-                    <CardContent>
-                      <Typography style={{ textAlign: 'center' }} variant="h6" component="div">
-                        {name}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
+
+            <Card ref={ref} onClick={onClick} key={name} sx={{ width: 300 }}>
+              
+              <CardActionArea 
+                sx={{
+                  paddingBottom: '40px'
+                }}>
+                {image && 
+                  <CardMedia
+                    component="img"
+                    height="240"
+                    image={image}
+                    alt={name}
+                  /> 
+                }
+                <CardContent>
+                  <Typography style={{ textAlign: 'center' }} variant="h6" component="div">
+                    {name}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+           
             </Card>
+
         </>
     )
 }
