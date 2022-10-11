@@ -34,12 +34,12 @@ const Home: NextPage = ({ data, error }: any) => {
       return
     }
 
-    console.log(searchText)
     const imageRes = await getPlaceTitleImage({ searchText })
     const newObj = {
       ...placeLists[placeIndex],
       titleImage: imageRes.data.result[0].titleImage
     }
+    
     placeLists[placeIndex] = newObj
 
     setPlaceLists([...placeLists])

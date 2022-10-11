@@ -1,85 +1,17 @@
 import { Typography } from '@mui/material';
 import type { NextPage } from 'next'
+import { useEffect, useState } from 'react';
+import { getProductLists } from '../api/product';
 import ShopCard from '../components/shopCard';
 
-const products = [
-  {
-    title:'Amazon Basics Outdoor Rucksack Backpack',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-    productSource: "Decathlon"
-  },
-  {
-    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-    productSource: "Myntra"
-  },
-  {
-    title:'Amazon Basics Outdoor Rucksack Backpack',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-    productSource: "Amazon"
+const Shop: NextPage = ({ data, error}: any) => {
 
-  },
-  {
-    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-    productSource: "Amazon"
+  const [productList, setProductList] = useState([])
 
-  }, {
-    title:'Amazon Basics Outdoor Rucksack Backpack',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-    productSource: "Amazon"
+  useEffect(() =>{
+    setProductList(data)
+  }, [data])
 
-  },
-  {
-    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-    productSource: "Amazon"
-  },
-  {
-    title:'Amazon Basics Outdoor Rucksack Backpack',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-    productSource: "Amazon"
-  },
-  {
-    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-    productSource: "Amazon"
-  },
-  {
-    title:'Amazon Basics Outdoor Rucksack Backpack',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-    productSource: "Amazon"
-  },
-  {
-    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-    productSource: "Amazon"
-  },
-  {
-    title:'Amazon Basics Outdoor Rucksack Backpack',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-    productSource: "Amazon"
-  },
-  {
-    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-    productSource: "Amazon"
-  }
-]
-const Shop: NextPage = () => {
-  
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
@@ -87,19 +19,35 @@ const Shop: NextPage = () => {
       </div>
       <div style={{ marginTop: '50px', justifyContent: 'center',  display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
        {
-        products.map((el)=>(
-          <ShopCard 
-            key={el.title}
-            title={el.title}
-            link={el.link}
-            image={el.image}
-            productSource={el.productSource}
-          />  
-        ))
+        productList.map((el: any)=>{
+          const { title, image, source, affiliateLink, tags } = el
+          return(
+              <ShopCard 
+                key={title}
+                title={title}
+                link={affiliateLink}
+                image={image}
+                productSource={source}
+              />  
+          )
+        })
        }
       </div>
     </>
   )
+}
+
+export async function getStaticProps() {
+
+  const { data } = await getProductLists()
+
+  return {
+    props: {
+      data: data.result,
+      error:{ status: data.status !== 'Success' ? true : false}
+    },
+  }
+
 }
 
 export default Shop;  
