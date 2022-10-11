@@ -1,11 +1,10 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Footer from "../components/footer";
 import PlaceCard from "../components/placeCard";
 import Colors from "../config/colors";
-import Places from "../constants/places";
 import { getPlaceList } from "../api/place";
 import { useEffect, useState } from "react";
 
@@ -98,7 +97,7 @@ export async function getStaticProps() {
       const { _id, name, searchText } = el
       return { _id, name, searchText }
   })
-console.log(newData)
+
   return {
     props: {
       data: newData,
