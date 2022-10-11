@@ -15,17 +15,17 @@ const PlaceCard = (props: Props) =>{
 
     const { image, name, searchText, onClick, onViewExist } = props
 
-    const inViewport = useOnScreen(ref, '150px'); 
+    // const inViewport = useOnScreen(ref, '150px'); 
  
-    useEffect(() =>{
+    // useEffect(() =>{
     
-      // console.log(inViewport)
-      // if(inViewport){
-      //   console.log(searchText)
-      //     onViewExist(searchText)
-      // }
+    //   console.log(inViewport)
+    //   if(inViewport){
+    //     console.log(searchText)
+    //       onViewExist(searchText)
+    //   }
 
-    }, [inViewport])
+    // }, [inViewport])
 
     return(
         <>
