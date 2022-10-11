@@ -1,12 +1,12 @@
 import { GetStaticPaths, NextPage } from "next/types";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { getPlaceInformation } from "../api/place";
-import useFetch from "../hooks/useFetch"
+import { getPlaceInformation } from "../../api/place";
+import useFetch from "../../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
-import TitlebarImageList from "../components/share/titlebarImageList";
-import ShopCard from "../components/shopCard";
-import ProductViewsList from "../components/place/productViewsList";
+import TitlebarImageList from "../../components/share/titlebarImageList";
+import ShopCard from "../../components/shopCard";
+import ProductViewsList from "../../components/place/productViewsList";
 
 const content = [
     {

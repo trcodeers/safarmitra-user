@@ -106,7 +106,7 @@ const Home: NextPage = ({ data, error }: any) => {
                     image={titleImage}
                     searchText={searchText}
                     onViewExist={onViewExist}
-                    onClick={() => router.push(`/${searchText}`)}
+                    onClick={() => router.push(`/place/${searchText}`)}
                   />
                 )
             })
