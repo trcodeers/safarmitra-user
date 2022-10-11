@@ -1,22 +1,34 @@
 import axios from "axios";
-import {getAuthToken} from "./authService";
+import { setup } from 'axios-cache-adapter'
+const baseURL = 'http://localhost:4000'
+const api = setup({
+    baseURL: baseURL,
+  
+    cache: {
+      maxAge: 18 * 60 * 60 * 1000 // 18 hours
+    }
+})
+
+const apiClientGet = (url: string, cachable = true) =>{
+    
+    if(!cachable){  
+        return api.get(url, { cache: { maxAge : 0 } })
+    }
+    
+    return api.get(url)
+
+}
+
+const apiClientPost = (url: string, body: any) =>{
+    return axios.post(`${baseURL}${url}`, body)
+}
 
 const httpService = {
-    get : axios.get,
-    post : axios.post,
+    get : apiClientGet,
+    post : apiClientPost,
     put : axios.put,
     delete : axios.delete,
 }
 
-// HTTP Interceptor
-axios.interceptors.request.use((config: any) => {
-    const token = getAuthToken();
-   if(token){
-        config.headers.Authorization =  token;
-   }
-
-    return config;
-
-})
-
+ 
 export default httpService;

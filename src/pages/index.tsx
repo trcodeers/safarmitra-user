@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import PlaceCard from "../components/placeCard";
 import Colors from "../config/colors";
 import Places from "../constants/places";
+import { getPlaceList } from "../api/place";
 
 
 const Home: NextPage = () => {
@@ -82,5 +83,17 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+
+  const {data} = await getPlaceList()
+console.log(data)
+  return {
+    props: {
+      data,
+      error:{ status: data.status !== 'Success' ? true : false}
+    },
+  }
+}
 
 export default Home;
