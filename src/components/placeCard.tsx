@@ -11,7 +11,7 @@ type Props = {
 }
 const PlaceCard = (props: Props) =>{
     
-    const ref: any = useRef();
+    // const ref: any = useRef();
 
     const { image, name, searchText, onClick, onViewExist } = props
 
@@ -30,7 +30,7 @@ const PlaceCard = (props: Props) =>{
     return(
         <>
 
-            <Card ref={ref} onClick={onClick} key={name} sx={{ width: 300 }}>
+            <Card onClick={onClick} key={name} sx={{ width: 300 }}>
               
               <CardActionArea 
                 sx={{
