@@ -13,7 +13,7 @@ const Home: NextPage = ({ data, error }: any) => {
  
   const router = useRouter()
 
-  const [placeLists, setPlaceLists] = useState([])
+  const [placeLists, setPlaceLists] = useState<any>([])
 
   useEffect(() => {
     setPlaceLists(data)
@@ -27,10 +27,22 @@ const Home: NextPage = ({ data, error }: any) => {
 
   const onViewExist = async(searchText: string) =>{
   
+    if(!searchText) return
+    const placeIndex = placeLists.findIndex((p: any) => p.searchText === searchText)
+    
+    if(placeLists[placeIndex].titleImage){
+      return
+    }
+
     console.log(searchText)
     const imageRes = await getPlaceTitleImage({ searchText })
-    console.log(imageRes)
-  
+    const newObj = {
+      ...placeLists[placeIndex],
+      titleImage: imageRes.data.result[0].titleImage
+    }
+    placeLists[placeIndex] = newObj
+
+    setPlaceLists([...placeLists])
   }
 
   return (
@@ -73,7 +85,7 @@ const Home: NextPage = ({ data, error }: any) => {
         <Typography style={{ marginTop: '20px' }} variant="h6" textAlign={'center'}>
           Plan vacation for your favourite place 
         </Typography>
-        <div 
+        {placeLists.length > 0 &&  <div 
           style={{
             marginTop: '20px',
             display: 'flex',
@@ -85,7 +97,7 @@ const Home: NextPage = ({ data, error }: any) => {
           }}
         >
           {
-            placeLists.map((place, index) =>{
+            placeLists.map((place: any) =>{
               const { name, titleImage, searchText } = place
               return (
                   <PlaceCard 
@@ -99,7 +111,7 @@ const Home: NextPage = ({ data, error }: any) => {
                 )
             })
           }  
-        </div>
+        </div>}
       </Box>
   
     </>
