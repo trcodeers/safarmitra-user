@@ -11,21 +11,20 @@ type Props = {
 }
 const PlaceCard = (props: Props) =>{
     
-    // const ref: any = useRef();
+    const ref: any = useRef();
 
     const { image, name, searchText, onClick, onViewExist } = props
 
-    // const inViewport = useOnScreen(ref, '150px'); 
+    const inViewport = useOnScreen(ref, '150px'); 
  
-    // useEffect(() =>{
+    useEffect(() =>{
     
-    //   console.log(inViewport)
-    //   if(inViewport){
-    //     console.log(searchText)
-    //       onViewExist(searchText)
-    //   }
+      if(inViewport){
+        console.log(searchText)
+          onViewExist(searchText)
+      }
 
-    // }, [inViewport])
+    }, [inViewport])
 
     return(
         <>
