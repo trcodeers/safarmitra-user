@@ -15,12 +15,14 @@ const PlaceCard = (props: Props) =>{
                   <CardActionArea sx={{
                     paddingBottom: '40px'
                   }}>
-                    <CardMedia
+                    {image && <CardMedia
                       component="img"
                       height="240"
                       image={image}
                       alt={name}
-                    />
+                      
+                    /> 
+                    }
                     <CardContent>
                       <Typography style={{ textAlign: 'center' }} variant="h6" component="div">
                         {name}

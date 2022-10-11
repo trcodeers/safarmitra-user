@@ -1,7 +1,7 @@
 import { GetStaticPaths, NextPage } from "next/types";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { getPlaceDetails } from "../api/place";
+import { getPlaceInformation } from "../api/place";
 import useFetch from "../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
 import TitlebarImageList from "../components/share/titlebarImageList";
@@ -166,7 +166,7 @@ const Index: NextPage = ({ data, error }: any) => {
     const router = useRouter()
     const { name } = router.query
 
-    const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceDetails)
+    const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceInformation)
 
     const [snackMessage, setSnackMessage] = useState('')
 

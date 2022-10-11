@@ -2,7 +2,6 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import Footer from "../components/footer";
 import PlaceCard from "../components/placeCard";
 import Colors from "../config/colors";
 import { getPlaceList } from "../api/place";
@@ -18,6 +17,12 @@ const Home: NextPage = ({ data, error }: any) => {
   useEffect(() => {
     setPlaceLists(data)
   }, [data])
+
+  useEffect(() => {
+    if(placeLists.length > 0){
+      
+    }
+  }, [placeLists])
 
   return (
     <>

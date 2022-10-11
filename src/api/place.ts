@@ -7,7 +7,6 @@ const API_ENDPOINTS = {
     AddPlaceInformation: '/api/v1/place/addInformation',
     AddPlaceImage: '/api/v1/place/addImage',
     AddPlaceProduct: '/api/v1/place/addProduct'
-
 }
 
 export const getPlaceList = (): Promise<any> => {
