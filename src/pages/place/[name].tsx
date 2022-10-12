@@ -189,7 +189,7 @@ const Index: NextPage = ({ data, error }: any) => {
     }, [name]) 
 
     useEffect(() =>{
-      console.log(placeImagesData)
+      setImageList(placeImagesData.result)
     }, [placeImagesData])
 
     
@@ -213,9 +213,11 @@ const Index: NextPage = ({ data, error }: any) => {
             />
 
             <div>
-              <TitlebarImageList
-                  data={images}
-              />
+              {images.length > 0 && 
+                <TitlebarImageList
+                    data={images}
+                />
+              }
             </div>
 
         </>

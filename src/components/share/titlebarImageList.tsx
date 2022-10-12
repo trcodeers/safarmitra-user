@@ -7,7 +7,7 @@ type Props = {
   data: Array<any>
 }
 export default function TitlebarImageList(props: Props) {
-    const { data } = props
+  const { data } = props
   return (
    <>
       <Box
@@ -29,9 +29,9 @@ export default function TitlebarImageList(props: Props) {
             }}
             key={item.title}
           >
-            <Image
-              src="/placeImages/title.jpg"
-              alt="Picture of the author"
+            <img
+              src={item.source}
+              alt={item.title}
               width={400}
               height={300}
             />
