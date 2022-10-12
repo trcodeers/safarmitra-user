@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setup } from 'axios-cache-adapter'
-const baseURL = 'http://localhost:4000'
+const baseURL = 'https://safarmitra-api.herokuapp.com'
 const api = setup({
     baseURL: baseURL,
   
