@@ -33,7 +33,10 @@ export default function TitlebarImageList(props: Props) {
                 <img
                   src={item.source}
                   alt={item.title}
-                  width={400}
+                  style={{ 
+                    width: '100%',
+                    maxWidth: '400px'
+                  }}
                   height={300}
                 />
                 <Typography 
