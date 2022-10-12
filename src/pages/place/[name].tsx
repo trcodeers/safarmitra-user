@@ -171,14 +171,14 @@ const Index: NextPage = ({ data, error }: any) => {
     const [snackMessage, setSnackMessage] = useState('')
 
     const [productList, setProductList] = useState([])
-    const [contentList, setContentList] = useState([])
+    const [informationList, setInformationList] = useState([])
     const [imageList, setImageList] = useState([])
 
     useEffect(() =>{
-      console.log(data.content)
+      console.log(data.information)
       console.log(data.products)
       if(data){
-          setContentList(data.content)
+          setInformationList(data.information)
           setProductList(data.products)
         }
     },[data])
@@ -211,8 +211,8 @@ const Index: NextPage = ({ data, error }: any) => {
               }}
           >
               {
-                  contentList?.map((el: any, index: number) => {
-                      const { question, answer } = el
+                  informationList?.map((el: any, index: number) => {
+                      const { title, content } = el
                       return(
                           <Box
                               sx={{
@@ -225,10 +225,10 @@ const Index: NextPage = ({ data, error }: any) => {
                                   variant="h6" 
                                   style={{ fontSize: '20px', fontWeight: '600' }}
                               >
-                                  [ {question} ]
+                                  [ {title} ]
                               </Typography>   
                               <Typography variant="body1">
-                                  <div  dangerouslySetInnerHTML={{ __html: answer }} />
+                                  <div  dangerouslySetInnerHTML={{ __html: content }} />
                               </Typography>   
 
                           </Box>
@@ -250,8 +250,6 @@ const Index: NextPage = ({ data, error }: any) => {
 }
 
 
- 
-
 export const getStaticPaths: GetStaticPaths<any> = async () => {
     
   const { data } = await getPlaceList()
@@ -268,11 +266,11 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 export async function getStaticProps({ params }: any) {
 
     const { data } = await getPlaceInformation({ searchText: params.name })
-
+    
     return {
       props: {
         data: {
-            content: data?.result?.content || null,
+            information: data?.result?.information || null,
             products: data?.result?.products || null
         },
         error:{ status: data.status !== 'Success' ? true : false}
