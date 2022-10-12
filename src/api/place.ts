@@ -31,4 +31,4 @@ export const addPlaceImage = (data: any): Promise<any> => {
 
 export const addPlaceProduct = (data: any): Promise<any> => {
     return httpService.put(API_ENDPOINTS.AddPlaceProduct, { ...data })
-}    
+}   

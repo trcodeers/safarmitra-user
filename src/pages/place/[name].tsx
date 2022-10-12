@@ -8,6 +8,7 @@ import TitlebarImageList from "../../components/share/titlebarImageList";
 import ShopCard from "../../components/shopCard";
 import ProductViewsList from "../../components/place/productViewsList";
 import PlaceInfomationList from "../../components/place/placeInfomationList";
+import { getPlaceImages } from "../../api/images";
 
 const content = [
     {
@@ -167,7 +168,7 @@ const Index: NextPage = ({ data, error }: any) => {
   const router = useRouter()
   const { name } = router.query
   
-  // const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceInformation)
+  const { data: placeImagesData, error: getPlaceImagesError, loading: getPlaceImagesLoading, request: getPlaceImagesRequset } = useFetch(getPlaceImages)
 
     const [snackMessage, setSnackMessage] = useState('')
 
@@ -176,18 +177,20 @@ const Index: NextPage = ({ data, error }: any) => {
     const [imageList, setImageList] = useState([])
 
     useEffect(() =>{
-      console.log(data.information)
-      console.log(data.products)
-      if(data){
+        if(data){
           setInformationList(data.information)
           setProductList(data.products)
         }
     },[data])
 
     useEffect(() =>{
-        if(name){
-         }
-      }, [name]) 
+      if(name)
+        getPlaceImagesRequset({ searchText: name })
+    }, [name]) 
+
+    useEffect(() =>{
+      console.log(placeImagesData)
+    }, [placeImagesData])
 
     
 
@@ -205,15 +208,15 @@ const Index: NextPage = ({ data, error }: any) => {
                 />
             </Box>
 
-              <PlaceInfomationList 
-                informationList={informationList}
-              />
-
-          <div>
-            <TitlebarImageList
-                data={images}
+            <PlaceInfomationList 
+              informationList={informationList}
             />
-          </div>
+
+            <div>
+              <TitlebarImageList
+                  data={images}
+              />
+            </div>
 
         </>
     )
