@@ -1,7 +1,7 @@
 import { GetStaticPaths, NextPage } from "next/types";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { getPlaceInformation } from "../../api/place";
+import { getPlaceInformation, getPlaceList } from "../../api/place";
 import useFetch from "../../hooks/useFetch"
 import { Box, Typography } from "@mui/material";
 import TitlebarImageList from "../../components/share/titlebarImageList";
@@ -34,6 +34,83 @@ const content = [
         answer: 'Shimla ios   fb feruh fewh  fe w hwd uqwbi ewfwwh whf jwfiwbfwq dhw fiwfff fh fhjwhfw w fwfwfw fw fw fwe f f fffw w fw fwfwe fwe fw fw '
     },
  
+]
+
+const products = [
+  {
+    title:'Amazon Basics Outdoor Rucksack Backpack',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productSource: "Decathlon"
+  },
+  {
+    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
+    productSource: "Myntra"
+  },
+  {
+    title:'Amazon Basics Outdoor Rucksack Backpack',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productSource: "Amazon"
+    
+  },
+  {
+    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
+    productSource: "Amazon"
+    
+  }, {
+    title:'Amazon Basics Outdoor Rucksack Backpack',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productSource: "Amazon"
+    
+  },
+  {
+    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
+    productSource: "Amazon"
+  },
+  {
+    title:'Amazon Basics Outdoor Rucksack Backpack',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productSource: "Amazon"
+  },
+  {
+    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
+    productSource: "Amazon"
+  },
+  {
+    title:'Amazon Basics Outdoor Rucksack Backpack',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productSource: "Amazon"
+  },
+  {
+    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
+    productSource: "Amazon"
+  },
+  {
+    title:'Amazon Basics Outdoor Rucksack Backpack',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productSource: "Amazon"
+  },
+  {
+    title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
+    link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
+    image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
+    productSource: "Amazon"
+  }
 ]
 
 const images = [
@@ -83,110 +160,35 @@ const images = [
     },
 ];
 
-const products = [
-    {
-      title:'Amazon Basics Outdoor Rucksack Backpack',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-      productSource: "Decathlon"
-    },
-    {
-      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-      productSource: "Myntra"
-    },
-    {
-      title:'Amazon Basics Outdoor Rucksack Backpack',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-      productSource: "Amazon"
-
-    },
-    {
-      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-      productSource: "Amazon"
-
-    }, {
-      title:'Amazon Basics Outdoor Rucksack Backpack',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-      productSource: "Amazon"
-
-    },
-    {
-      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-      productSource: "Amazon"
-    },
-    {
-      title:'Amazon Basics Outdoor Rucksack Backpack',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-      productSource: "Amazon"
-    },
-    {
-      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-      productSource: "Amazon"
-    },
-    {
-      title:'Amazon Basics Outdoor Rucksack Backpack',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-      productSource: "Amazon"
-    },
-    {
-      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-      productSource: "Amazon"
-    },
-    {
-      title:'Amazon Basics Outdoor Rucksack Backpack',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://images-na.ssl-images-amazon.com/images/I/916QRsnimTL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
-      productSource: "Amazon"
-    },
-    {
-      title:'Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket Columbia Glennaker Rain Jacket',
-      link:"https://www.youtube.com/results?search_query=how+to+check+current+day+trfiic+on+search+console",
-      image:'https://m.media-amazon.com/images/I/51okOH2sQcL._AC_UX679_.jpg',
-      productSource: "Amazon"
-    }
-]
-
 const Index: NextPage = ({ data, error }: any) => {
-
-    const { content, images, products } = data
-    const router = useRouter()
-    const { name } = router.query
-
-    const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceInformation)
+  
+  // const { content, images, products } = data
+  const router = useRouter()
+  const { name } = router.query
+  
+  // const { data: getPlaceDetailsData, error: getPlaceDetailsError, loading: getPlaceDetailsLoading, request: getPlaceDetailsRequset } = useFetch(getPlaceInformation)
 
     const [snackMessage, setSnackMessage] = useState('')
 
+    const [productList, setProductList] = useState([])
+    const [contentList, setContentList] = useState([])
+    const [imageList, setImageList] = useState([])
+
+    useEffect(() =>{
+      console.log(data.content)
+      console.log(data.products)
+      if(data){
+          setContentList(data.content)
+          setProductList(data.products)
+        }
+    },[data])
+
     useEffect(() =>{
         if(name){
-            getPlaceDetailsRequset({name})
          }
       }, [name]) 
 
-      useEffect(() =>{
-        if(getPlaceDetailsError?.status){
-            setSnackMessage(getPlaceDetailsError?.message || 'Please try after somtime')
-        }
-        else{
-            if(getPlaceDetailsData?.result){
-                // setData(getPlaceDetailsData?.result)
-            }
-        }
-      }, [getPlaceDetailsData, getPlaceDetailsError])
-
+    
 
     return(
         <>
@@ -197,7 +199,7 @@ const Index: NextPage = ({ data, error }: any) => {
             }}
           >
               <ProductViewsList 
-                data={products}
+                data={productList}
               />
           </Box>
           <Box
@@ -209,7 +211,7 @@ const Index: NextPage = ({ data, error }: any) => {
               }}
           >
               {
-                  content.map((el: any, index: number) => {
+                  contentList?.map((el: any, index: number) => {
                       const { question, answer } = el
                       return(
                           <Box
@@ -226,7 +228,7 @@ const Index: NextPage = ({ data, error }: any) => {
                                   [ {question} ]
                               </Typography>   
                               <Typography variant="body1">
-                                  <div  dangerouslySetInnerHTML={{ __html: answer }}/>
+                                  <div  dangerouslySetInnerHTML={{ __html: answer }} />
                               </Typography>   
 
                           </Box>
@@ -248,28 +250,32 @@ const Index: NextPage = ({ data, error }: any) => {
 }
 
 
-export const getStaticPaths: any = async () => {
+ 
+
+export const getStaticPaths: GetStaticPaths<any> = async () => {
     
-    return{
-        paths: [{ params: { name:  'mussiore' }}],
-        fallback: false
-    }
+  const { data } = await getPlaceList()
+  
+  const path = data.result.map((el: any) =>( { params: { name:  el.searchText }} ))
+
+  return {
+      paths: path,
+      fallback: false
+  }
 
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }: any) {
 
-    // const {data} = await getIndianStatesList()
+    const { data } = await getPlaceInformation({ searchText: params.name })
 
     return {
       props: {
         data: {
-            content: content,
-            images: images,
-            products: products
+            content: data?.result?.content || null,
+            products: data?.result?.products || null
         },
-        // error:{ status: data.status !== 'Success' ? true : false}
-        error: false
+        error:{ status: data.status !== 'Success' ? true : false}
       },
     }
 
