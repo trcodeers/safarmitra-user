@@ -45,7 +45,7 @@ export default function TitlebarImageList(props: Props) {
                     bottom: '1vh',
                     left: '2%', 
                     right: '1%',
-                    color: Colors.white,
+                    color: Colors.primary,
                     wordWrap: 'break-word'
                   }} 
                   variant='h6'
