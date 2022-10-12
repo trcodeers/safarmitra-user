@@ -7,6 +7,7 @@ import { Box, Typography } from "@mui/material";
 import TitlebarImageList from "../../components/share/titlebarImageList";
 import ShopCard from "../../components/shopCard";
 import ProductViewsList from "../../components/place/productViewsList";
+import PlaceInfomationList from "../../components/place/placeInfomationList";
 
 const content = [
     {
@@ -192,57 +193,27 @@ const Index: NextPage = ({ data, error }: any) => {
 
     return(
         <>
-          <Box
-            sx={{
-              marginLeft: '1%',
-              marginTop: '20px'
-            }}
-          >
-              <ProductViewsList 
-                data={productList}
-              />
-          </Box>
-          <Box
+       
+            <Box
               sx={{
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  gap: '30px',
-                  padding: { xs: '2%', sm: '2%' }
+                marginLeft: '1%',
+                marginTop: '20px'
               }}
-          >
-              {
-                  informationList?.map((el: any, index: number) => {
-                      const { title, content } = el
-                      return(
-                          <Box
-                              sx={{
-                                  display: 'flex',
-                                  flexDirection: 'column',
-                                  gap: '10px'
-                              }}
-                          >
-                              <Typography 
-                                  variant="h6" 
-                                  style={{ fontSize: '20px', fontWeight: '600' }}
-                              >
-                                  [ {title} ]
-                              </Typography>   
-                              <Typography variant="body1">
-                                  <div  dangerouslySetInnerHTML={{ __html: content }} />
-                              </Typography>   
+            >
+                <ProductViewsList 
+                  data={productList}
+                />
+            </Box>
 
-                          </Box>
-                      )
-                  })
-              }
+              <PlaceInfomationList 
+                informationList={informationList}
+              />
 
           <div>
-              <TitlebarImageList
-                  data={images}
-              />
+            <TitlebarImageList
+                data={images}
+            />
           </div>
-
-          </Box>
 
         </>
     )
