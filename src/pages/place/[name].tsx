@@ -20,7 +20,7 @@ const Index: NextPage = ({ data, error }: any) => {
 
     const [productList, setProductList] = useState([])
     const [informationList, setInformationList] = useState([])
-    const [imageList, setImageList] = useState([])
+    const [imageList, setImageList] = useState<Array<any>>([])
 
     useEffect(() =>{
         if(data){
@@ -59,7 +59,7 @@ const Index: NextPage = ({ data, error }: any) => {
             />
 
             <div>
-              {imageList.length > 0 && 
+              {imageList?.length > 0 && 
                 <TitlebarImageList
                     data={imageList}
                 />

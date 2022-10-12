@@ -8,53 +8,55 @@ type Props = {
 }
 export default function TitlebarImageList(props: Props) {
   const { data } = props
+  
   return (
-   <>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '0px',
-          flexGrow:1,
-          flexWrap: 'wrap'
-        }}
-      >
-        {data.map((item: any) => (
+      <>
           <Box
             sx={{
               display: 'flex',
-              flexDirection: 'column',
+              justifyContent: 'center',
               gap: '0px',
-              position: 'relative'
+              flexGrow:1,
+              flexWrap: 'wrap'
             }}
-            key={item.title}
           >
-            <img
-              src={item.source}
-              alt={item.title}
-              width={400}
-              height={300}
-            />
-            <Typography 
-              sx={{ 
-                position: 'absolute', 
-                bottom: '1vh',
-                left: '2%', 
-                right: '1%',
-                color: Colors.white,
-                wordWrap: 'break-word'
-              }} 
-              variant='h6'
-            >
-              {item.title}
-            </Typography>  
+            {data.map((item: any) => (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0px',
+                  position: 'relative'
+                }}
+                key={item.title}
+              >
+                <img
+                  src={item.source}
+                  alt={item.title}
+                  width={400}
+                  height={300}
+                />
+                <Typography 
+                  sx={{ 
+                    position: 'absolute', 
+                    bottom: '1vh',
+                    left: '2%', 
+                    right: '1%',
+                    color: Colors.white,
+                    wordWrap: 'break-word'
+                  }} 
+                  variant='h6'
+                >
+                  {item.title}
+                </Typography>  
+              </Box>
+                
+            ))}
+
           </Box>
-            
-        ))}
 
-      </Box>
-
-   </>
+      </>
    );
-}
+
+  }
 
