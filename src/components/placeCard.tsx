@@ -29,7 +29,7 @@ const PlaceCard = (props: Props) =>{
     return(
         <>
 
-            <Card onClick={onClick} key={name} sx={{ width: 300 }}>
+            <Card ref={ref} onClick={onClick} key={name} sx={{ width: 300 }}>
               
               <CardActionArea 
                 sx={{
