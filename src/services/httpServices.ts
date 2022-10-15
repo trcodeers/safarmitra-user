@@ -1,12 +1,20 @@
 import axios from "axios";
 import { setup } from 'axios-cache-adapter'
 const baseURL = 'https://safarmitra-api.herokuapp.com'
+
 const api = setup({
     baseURL: baseURL,
   
     cache: {
-      maxAge: 18 * 60 * 60 * 1000 // 18 hours
+
+      maxAge: 18 * 60 * 60 * 1000, // 18 hours
+      exclude: {
+        // Only exclude PUT, PATCH and DELETE methods from cache
+        methods: ['put', 'patch', 'delete']
+      }
+    
     }
+
 })
 
 const apiClientGet = (url: string, cachable = true) =>{
@@ -20,7 +28,7 @@ const apiClientGet = (url: string, cachable = true) =>{
 }
 
 const apiClientPost = (url: string, body: any) =>{
-    return axios.post(`${baseURL}${url}`, body)
+    return api.post(`${baseURL}${url}`, body)
 }
 
 const httpService = {
