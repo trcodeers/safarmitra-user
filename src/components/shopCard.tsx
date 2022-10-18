@@ -67,6 +67,11 @@ const ShopCard = (props: Props) =>{
                     variant="contained"
                     sx={{ backgroundColor: '#FFDE00', color: '#000000' }}
                     style={{ position: 'absolute', bottom:"0.2vh" }}
+                    onClick={(e: any)=>{
+                        e.stopPropagation()
+                        const urlToOpen = new URL(link)
+                        window.open(urlToOpen, '_blank')
+                    }}
                 >
                     View Details
                 </Button>
