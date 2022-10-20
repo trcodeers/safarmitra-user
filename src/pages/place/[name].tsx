@@ -49,9 +49,11 @@ const Index: NextPage = ({ data, error }: any) => {
                 marginTop: '20px'
               }}
             >
-                <ProductViewsList 
-                  data={productList}
-                />
+                {productList?.length > 0 && 
+                  <ProductViewsList 
+                    data={productList}
+                  />
+                }
             </Box>
 
             <PlaceInfomationList 
