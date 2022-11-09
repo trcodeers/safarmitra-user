@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setup } from 'axios-cache-adapter'
-const baseURL = 'https://api-safarmitra.herokuapp.com'
+const baseURL = 'https://travell.onrender.com'
 
 const api = setup({
     baseURL: baseURL,
