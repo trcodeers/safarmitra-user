@@ -16,6 +16,9 @@ import MenuItemsList from './MenuItemsList';
 import Colors from "../../config/colors";
 import { useRouter } from 'next/router';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import LinearProgress from '@mui/material/LinearProgress';
+import { useContext } from 'react';
+import GlobalLoaderContext from '../../context/GlobalLoaderContext';
 
 interface Props {
   window?: () => Window;
@@ -32,6 +35,8 @@ export default function DekstopDrawer(props: Props) {
 
   const { window, children } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const { loader } = useContext(GlobalLoaderContext);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -88,6 +93,7 @@ export default function DekstopDrawer(props: Props) {
             <MenuItemsList />
           </Box>
         </Toolbar>
+        {loader && <LinearProgress />}
       </AppBar>
       <Box component="nav">
         <Drawer

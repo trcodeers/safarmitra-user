@@ -5,8 +5,9 @@ import { useRouter } from "next/router";
 import PlaceCard from "../components/placeCard";
 import Colors from "../config/colors";
 import { getPlaceList } from "../api/place";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getPlaceTitleImage } from "../api/images";
+import GlobalLoaderContext from "../context/GlobalLoaderContext";
 
 
 const Home: NextPage = ({ data, error }: any) => {
@@ -14,6 +15,7 @@ const Home: NextPage = ({ data, error }: any) => {
   const router = useRouter()
 
   const [placeLists, setPlaceLists] = useState<any>([])
+  const { loader, setLoader } = useContext(GlobalLoaderContext);
 
   useEffect(() => {
     setPlaceLists(data)
@@ -24,6 +26,14 @@ const Home: NextPage = ({ data, error }: any) => {
       
     }
   }, [placeLists])
+
+  useEffect(() =>{
+
+    return () =>{
+      setLoader(false)
+    }
+
+  }, [])
 
   const onViewExist = async(searchText: string) =>{
   
@@ -43,6 +53,11 @@ const Home: NextPage = ({ data, error }: any) => {
     placeLists[placeIndex] = newObj
 
     setPlaceLists([...placeLists])
+  }
+
+  const onClickPlaceCard = (searchText: string) =>{
+    setLoader(true)
+    router.push(`/place/${searchText}`)
   }
 
   return (
@@ -106,7 +121,7 @@ const Home: NextPage = ({ data, error }: any) => {
                     image={titleImage}
                     searchText={searchText}
                     onViewExist={onViewExist}
-                    onClick={() => router.push(`/place/${searchText}`)}
+                    onClick={() => onClickPlaceCard(searchText)}
                   />
                 )
             })

@@ -3,7 +3,7 @@ import {  FormControlLabel, List, ListItem, ListItemText, Switch } from "@mui/ma
 import {useRouter} from 'next/router';
 import Link from 'next/link';
 import { Tabs } from "../../constants/GlobalConstants";
-import DarkModeContext from "../../context/DarkModeContext";
+import DarkModeContext from "../../context/GlobalLoaderContext";
 import Colors from "../../config/colors";
  
 type Props = {
