@@ -89,11 +89,20 @@ export default function DekstopDrawer(props: Props) {
           >
             <MenuIcon fontSize='large' />
           </IconButton>
-          <Box sx={{marginRight: '100px', display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ marginRight: '100px', display: { xs: 'none', sm: 'block' } }}>
             <MenuItemsList />
           </Box>
         </Toolbar>
-        {loader && <LinearProgress />}
+        {!loader &&
+          <Box
+            sx={{
+              marginTop: { xs: '10px', sm: '4px' }
+            }}
+          >
+            <LinearProgress />
+          </Box>
+        }
+
       </AppBar>
       <Box component="nav">
         <Drawer
