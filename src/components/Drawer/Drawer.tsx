@@ -93,7 +93,7 @@ export default function DekstopDrawer(props: Props) {
             <MenuItemsList />
           </Box>
         </Toolbar>
-        {!loader &&
+        {loader &&
           <Box
             sx={{
               marginTop: { xs: '10px', sm: '4px' }
